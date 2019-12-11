@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smartroom365",
+  "private_key_id": "dcec60707eb780a32b0677e7b0f4f1e80490a68e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDRWMWRSte8bszq\nFo4v3+YA5rFu6dQjAg2gCnh5xlEP2Q82MlTdMEyp2N3iQI3s5hV2Ex9zw10ptoao\n3d4yLuhyBXxozJtFapqRZUoJv18TTb2wQ9cGRzyu6/gO32UeJBxv4jX66z9ShBeQ\nG6h3ifzBKX7Edyb1pqrQG0zJFHp0aT8c7SH57cb3/6G22hIXI0eyvd+rRwklzY9c\nAA4ihqThGOFISrhbLzfeLSuVmHbOT+kaZopOCNqCBuJ/cjyefojvurwKwnpse3OG\nzBH6vAjYVsUbVxl/FMRDN5kum2sM1X3akzyygz2Jzj4DhflCQZL6l98srjoQwd52\nh9hXrIb/AgMBAAECggEAXRWYT4jUUWyA/+tEkOQA/NCW/6bIFULh9RICzL7SJ3ZP\n7bzGgE1sIS+VRXeHw9jwnP5Ww14QbC5FRQvWM0EpSR3IWj70IZMLpG/B0oC90TMF\nj70yfI+rW2n/8/kAGL1cyaDveKEmmFW0tnad231HHkqJm+kRMTRJClzBMT3CT0T5\nDbrEbau8BRn5JKlBP/2qYy8QaoEcK2/63uz3w4xO6Pcb28DWDUdAZpiUGWd1qQtx\nhCoSXKamNOWr9uUenN+wAfxgfSPEWzcl99/QCMIdsiIKfv09yyBUusp9yQjA5ag/\nOJ6m6ds+MdhdQykyZ6F569iGt86gcjxoPo1QdtNpnQKBgQDrIQiABgT4wq4sWhj9\n+Ogcg0Nv7EQCBryA58WWhqDYVcozJF7km3DwX3lhJHpJrHOqzCodwvLj6rTJwpxy\n94wY18sfIVfNl0nxViZFiG6iaKws5XCv/iW4j2ntliVwoXB+wYhrh2xe2F0fI6yX\n1rshVeHkeH1U/YbO73wowCVJrQKBgQDj7d+vbfZzjFsbTSzEJVbFtgIW7u8Uc8Qg\nsCuG0NKIp85IxWkC1NH9xbh682LW6D9KI1nlxBHbhQbl5erjpscIN8UAW61HYQvq\nc1Px6Nv8YrX2FSkbBPeahPkPEXKnVx8u1jl3GqszP4skEg5Qawnkzs8kuV8CdBUe\nSWaO3LCA2wKBgAspU0T4hC3m1+vFDyCnOyV3WbErbwMFnNclqWx+0Y3TbLjGxjZl\n5pOShKmG2MM8i3UVIf6trWgCUTiuo0yV0bGwNLUymP9qahkptMFiO5Y8D8hFz/aa\nwuGi9S1RDk/tafCqcTZhhFRwQuNihyPiDpoDgKiey5xIOKkEF0m77Uk1AoGABVo5\nrYH0jqQWI579VSHXVs8+X1F/FcjeKzJX41OWDhV6t6TDIYjj4YS6H1EF2iwcCF6q\nJsYi8Te/gLiUeoIZHG1K2AZPHGUABaJtrzmbqOKciUnX7EWClwNWYe8z9RALsGrh\ncJWUvaBZYSB3a5YH5nKg1KjxvToCoPJyURqHno8CgYAMtGhILAQ+M88lVXlgQImu\nS2xiZhTbDf9ZpbGHapvAtq3fY6OkAl44XS4LhSyEgmA08Q9Y5UdzyB8+zB/kI9ae\n98kAxZ45vqWm8fc7YPbuRKosj84KU/8mVVN2XRwwTvtpDc0iz7Zbj+iAk+JXmcNc\nVMFoolASdOI8RhgE8qnzGQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "smartroom365-server@smartroom365.iam.gserviceaccount.com",
+  "client_id": "101168759602941448778",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/smartroom365-server%40smartroom365.iam.gserviceaccount.com"
+}

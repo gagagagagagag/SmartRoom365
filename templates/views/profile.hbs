@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Develocraft - Profile</title> <!-- Module tab title -->
+    <link rel="icon" href="/assets/images/favicon.png">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <link href="./main.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/pace.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+<div class="app-container app-theme-white body-tabs-shadow {{fixedHeader}} {{fixedSidebar}} {{fixedFooter}}"
+     id="mainAppContainer">
+
+    {{>header}}
+
+    <div class="app-main">
+
+        {{>sidemenu}}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class="pe-7s-user icon-gradient bg-mean-fruit">
+                                </i>
+                            </div>
+                            <div> My Profile <!-- Module title-->
+                                <div class="page-title-subheading"> View and manage your data <!-- Module description -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--                Content-->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-3" id="viewProfileCard">
+                            <div class="card-header">
+                                My Profile
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center" id="profileCardLoader">
+                                    <strong>Loading...</strong>
+                                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                                </div>
+                                <form id="profileForm" class="d-none">
+                                    <div class="position-relative form-group">
+                                        <label for="workerName" class="">Name*</label>
+                                        <input id="workerName" type="text" class="form-control" value="{{userName}}" disabled>
+                                    </div>
+                                    <div class="position-relative form-group">
+                                        <label for="workerEmail" class="">Email*</label>
+                                        <input id="workerEmail" type="email" class="form-control" value="{{userEmail}}" disabled>
+                                    </div>
+                                    <div class="position-relative form-group">
+                                        <label for="workerAddress" class="">Address*</label>
+                                        <input id="workerAddress" type="text" class="form-control editable" required disabled>
+                                    </div>
+
+                                    <div id="databaseAdditionalFieldsProfileContainer">
+
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="card-footer d-block text-center">
+                                <button class="btn btn-primary" id="startEditButton" onclick="startEditing()"><i class="fas fa-wrench mr-1"></i>Edit</button>
+<!--                                Edit buttons-->
+                                <button class="btn btn-danger d-none edit-buttons" onclick="cancelEditing()"><i class="fas fa-times mr-1"></i>Cancel</button>
+                                <button class="btn btn-success d-none edit-buttons" type="submit" form="profileForm"><i class="fas fa-save mr-1"></i>Save</button>
+                            </div>
+                        </div>
+<!--                        No profile yet, go to onboarding-->
+                        <div class="card mb-2 d-none" id="redirectToOnboardingCard">
+                            <div class="card-header text-center">
+                                No profile yet
+                            </div>
+                            <div class="card-body text-center mb-5">
+                                <div class="page-title-icon mt-5">
+                                    <i class="pe-7s-comment icon-gradient bg-tempting-azure" style="font-size: 90px"></i>
+                                </div>
+                                You did not go through onboarding yet, do it now!
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-info" href="/onboarding">Onboarding</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            {{>footer}}
+
+        </div>
+    </div>
+</div>
+
+<!--Templates-->
+<script id="forminput-select-template" type="text/x-handlebars-template">
+    <div class="position-relative form-group">
+        <label for="additionalFieldProfile{{additionalFieldIndex}}" class="">{{additionalFieldLabel}}{{additionalFieldRequiredLabel}}</label>
+        <select id="additionalFieldProfile{{additionalFieldIndex}}" class="form-control editable" disabled>
+        </select>
+    </div>
+</script>
+
+<script id="forminput-select-multiple-template" type="text/x-handlebars-template">
+    <div class="position-relative form-group">
+        <label for="additionalFieldProfile{{additionalFieldIndex}}" class="">{{additionalFieldLabel}}{{additionalFieldRequiredLabel}}</label>
+        <select multiple id="additionalFieldProfile{{additionalFieldIndex}}" class="form-control editable" disabled>
+        </select>
+    </div>
+</script>
+
+<script id="forminput-input-template" type="text/x-handlebars-template">
+    <div class="position-relative form-group">
+        <label for="additionalFieldProfile{{additionalFieldIndex}}" class="">{{additionalFieldLabel}}{{additionalFieldRequiredLabel}}</label>
+        <input id="additionalFieldProfile{{additionalFieldIndex}}" type="{{additionalFieldType}}" class="form-control editable" disabled>
+    </div>
+</script>
+
+<script data-pace-options='{ "restartOnRequestAfter": false }' src="./assets/scripts/dependencies/pace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<script src="./assets/scripts/search.js"></script>
+<script src="./assets/scripts/showToasterMessages.js"></script>
+<!--Module script-->
+<script src="./assets/scripts/profile.js"></script>
+</body>
+</html>

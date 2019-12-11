@@ -1,0 +1,44 @@
+{
+  "modules" : [
+    {
+      "name": "Dashboard",
+      "uri": "/home",
+      "permission_required": false,
+      "show_up_in_search": true,
+      "has_children": false,
+      "parent": ""
+    },
+    {
+      "name": "Settings",
+      "uri": "/settings",
+      "permission_required": false,
+      "show_up_in_search": false,
+      "has_children": false,
+      "parent": ""
+    },
+    {
+      "name": "Profile",
+      "uri": "/profile",
+      "permission_required": false,
+      "show_up_in_search": false,
+      "has_children": false,
+      "parent": ""
+    },
+    {
+      "name": "Alarm",
+      "uri": "/alarm",
+      "permission_required": true,
+      "show_up_in_search": true,
+      "has_children": false,
+      "parent": ""
+    },
+    {
+      "name": "Broadcast message",
+      "uri": "/broadcast-message",
+      "permission_required": true,
+      "show_up_in_search": true,
+      "has_children": false,
+      "parent": ""
+    }
+  ]
+}

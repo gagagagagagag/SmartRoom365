@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Develocraft - Broadcast message</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <link href="./main.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/pace.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+<div class="app-container app-theme-white body-tabs-shadow {{fixedHeader}} {{fixedSidebar}} {{fixedFooter}}" id="mainAppContainer">
+
+    {{>header}}
+
+    <div class="app-main">
+
+        {{>sidemenu}}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class="pe-7s-config icon-gradient bg-mean-fruit">
+                                </i>
+                            </div>
+                            <div>Broadcast message
+                                <div class="page-title-subheading">Send an announcement to all the users
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3 card">
+                            <div class="card-header">
+                                Announcement
+                            </div>
+                            <div class="card-body">
+                                <form id="broadcastMessageForm">
+                                    <div class="position-relative form-group">
+                                        <label for="messageTitle" class="">Announcement title</label>
+                                        <input name="title" id="messageTitle" placeholder="Great news!" type="text" class="form-control">
+                                    </div>
+                                    <div class="position-relative form-group">
+                                        <label for="messageBody" class="">Announcement body</label>
+                                        <textarea name="body" id="messageBody" class="form-control" style="margin-top: 0px; margin-bottom: 0px; height: 80px;"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-success" id="announcementSendButton">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            {{>footer}}
+
+        </div>
+    </div>
+</div>
+
+<script data-pace-options='{ "restartOnRequestAfter": false }' src="./assets/scripts/dependencies/pace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<script src="./assets/scripts/search.js"></script>
+<script src="./assets/scripts/broadcastMessage.js"></script>
+</body>
+</html>

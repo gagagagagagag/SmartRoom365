@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Develocraft - Settings</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <link href="./main.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/pace.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+<div class="app-container app-theme-white body-tabs-shadow {{fixedHeader}} {{fixedSidebar}} {{fixedFooter}}" id="mainAppContainer">
+
+    {{>header}}
+
+    <div class="app-main">
+
+        {{>sidemenu}}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class="pe-7s-config icon-gradient bg-mean-fruit">
+                                </i>
+                            </div>
+                            <div>Settings
+                                <div class="page-title-subheading">Manage user permissions and site functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3 card">
+                            <div class="card-header card-header-tab-animation">
+                                <ul class="nav nav-justified">
+                                    <li class="nav-item"><a data-toggle="tab" href="#tab-eg115-0" class="active nav-link">Theme settings</a></li>
+                                    <li class="nav-item"><a data-toggle="tab" href="#tab-eg115-1" class="nav-link" onclick="fetchUsersData()">Manage permissions</a></li>
+                                    <li class="nav-item"><a data-toggle="tab" href="#tab-eg115-2" class="nav-link" onclick="getNotificationChannels()">Manage notifications</a></li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab-eg115-0" role="tabpanel">
+                                        <!--                                        Theme settings-->
+
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <div class="widget-content p-0">
+                                                    <div class="widget-content-wrapper">
+                                                        <div class="widget-content-left mr-3">
+                                                            <div class="switch has-switch switch-container-class" data-class="fixed-header">
+                                                                <div class="switch-animate switch-on">
+<!--                                                                    <input type="checkbox" data-toggle="toggle" data-onstyle="success" id="checkedFixedHeader">-->
+                                                                    <label class="switch" for="checkedFixedHeader">
+                                                                        <input type="checkbox" data-toggle="toggle" data-onstyle="success" id="checkedFixedHeader">
+                                                                        <div class="slider round"></div>
+                                                                    </label>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="widget-content-left">
+                                                            <div class="widget-heading">Fixed Header
+                                                            </div>
+                                                            <div class="widget-subheading">Makes the header top fixed, always visible!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <div class="widget-content p-0">
+                                                    <div class="widget-content-wrapper">
+                                                        <div class="widget-content-left mr-3">
+                                                            <div class="switch has-switch switch-container-class" data-class="fixed-sidebar">
+                                                                <div class="switch-animate switch-on">
+<!--                                                                    <input type="checkbox" data-toggle="toggle" data-onstyle="success" id="checkedFixedSidebar">-->
+                                                                    <label class="switch" for="checkedFixedSidebar">
+                                                                        <input type="checkbox" data-toggle="toggle" data-onstyle="success" id="checkedFixedSidebar"/>
+                                                                        <div class="slider round"></div>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="widget-content-left">
+                                                            <div class="widget-heading">Fixed Sidebar
+                                                            </div>
+                                                            <div class="widget-subheading">Makes the sidebar left fixed, always visible!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <div class="widget-content p-0">
+                                                    <div class="widget-content-wrapper">
+                                                        <div class="widget-content-left mr-3">
+                                                            <div class="switch has-switch switch-container-class" data-class="fixed-footer">
+                                                                <div class="switch-animate switch-off">
+<!--                                                                    <input type="checkbox" data-toggle="toggle" data-onstyle="success" id="checkedFixedFooter">-->
+                                                                    <label class="switch" for="checkedFixedFooter">
+                                                                        <input type="checkbox" data-toggle="toggle" data-onstyle="success" id="checkedFixedFooter"/>
+                                                                        <div class="slider round"></div>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="widget-content-left">
+                                                            <div class="widget-heading">Fixed Footer
+                                                            </div>
+                                                            <div class="widget-subheading">Makes the app footer bottom fixed, always visible!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="divider mb-5"></div>
+
+                                        <h3 class="themeoptions-heading">
+                                            <div class="row">
+                                                <div class="col-6 text-center">
+                                                    <div>
+                                                        Header Theme
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <div>Sidebar Theme</div>
+
+                                                </div>
+                                            </div>
+                                        </h3>
+
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="p-3">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">
+                                                            <h5 class="pb-2">Choose Color Scheme
+                                                            </h5>
+                                                            <div class="theme-settings-swatches" onclick="headerThemeChange()">
+                                                                <div class="swatch-holder bg-primary switch-header-cs-class" data-class="bg-primary header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-secondary switch-header-cs-class" data-class="bg-secondary header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-success switch-header-cs-class" data-class="bg-success header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-info switch-header-cs-class" data-class="bg-info header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-warning switch-header-cs-class" data-class="bg-warning header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-danger switch-header-cs-class" data-class="bg-danger header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-light switch-header-cs-class" data-class="bg-light header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-dark switch-header-cs-class" data-class="bg-dark header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-focus switch-header-cs-class" data-class="bg-focus header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-alternate switch-header-cs-class" data-class="bg-alternate header-text-light">
+                                                                </div>
+                                                                <div class="divider">
+                                                                </div>
+                                                                <div class="swatch-holder bg-vicious-stance switch-header-cs-class" data-class="bg-vicious-stance header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-midnight-bloom switch-header-cs-class" data-class="bg-midnight-bloom header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-night-sky switch-header-cs-class" data-class="bg-night-sky header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-slick-carbon switch-header-cs-class" data-class="bg-slick-carbon header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-asteroid switch-header-cs-class" data-class="bg-asteroid header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-royal switch-header-cs-class" data-class="bg-royal header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-warm-flame switch-header-cs-class" data-class="bg-warm-flame header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-night-fade switch-header-cs-class" data-class="bg-night-fade header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-sunny-morning switch-header-cs-class" data-class="bg-sunny-morning header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-tempting-azure switch-header-cs-class" data-class="bg-tempting-azure header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-amy-crisp switch-header-cs-class" data-class="bg-amy-crisp header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-heavy-rain switch-header-cs-class" data-class="bg-heavy-rain header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-mean-fruit switch-header-cs-class" data-class="bg-mean-fruit header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-malibu-beach switch-header-cs-class" data-class="bg-malibu-beach header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-deep-blue switch-header-cs-class" data-class="bg-deep-blue header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-ripe-malin switch-header-cs-class" data-class="bg-ripe-malin header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-arielle-smile switch-header-cs-class" data-class="bg-arielle-smile header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-plum-plate switch-header-cs-class" data-class="bg-plum-plate header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-happy-fisher switch-header-cs-class" data-class="bg-happy-fisher header-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-happy-itmeo switch-header-cs-class" data-class="bg-happy-itmeo header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-mixed-hopes switch-header-cs-class" data-class="bg-mixed-hopes header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-strong-bliss switch-header-cs-class" data-class="bg-strong-bliss header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-grow-early switch-header-cs-class" data-class="bg-grow-early header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-love-kiss switch-header-cs-class" data-class="bg-love-kiss header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-premium-dark switch-header-cs-class" data-class="bg-premium-dark header-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-happy-green switch-header-cs-class" data-class="bg-happy-green header-text-light">
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-6">
+                                                <div class="p-3">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">
+                                                            <h5 class="pb-2">Choose Color Scheme
+                                                            </h5>
+                                                            <div class="theme-settings-swatches" onclick="sidebarThemeChange()">
+                                                                <div class="swatch-holder bg-primary switch-sidebar-cs-class" data-class="bg-primary sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-secondary switch-sidebar-cs-class" data-class="bg-secondary sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-success switch-sidebar-cs-class" data-class="bg-success sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-info switch-sidebar-cs-class" data-class="bg-info sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-warning switch-sidebar-cs-class" data-class="bg-warning sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-danger switch-sidebar-cs-class" data-class="bg-danger sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-light switch-sidebar-cs-class" data-class="bg-light sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-dark switch-sidebar-cs-class" data-class="bg-dark sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-focus switch-sidebar-cs-class" data-class="bg-focus sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-alternate switch-sidebar-cs-class" data-class="bg-alternate sidebar-text-light">
+                                                                </div>
+                                                                <div class="divider">
+                                                                </div>
+                                                                <div class="swatch-holder bg-vicious-stance switch-sidebar-cs-class" data-class="bg-vicious-stance sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-midnight-bloom switch-sidebar-cs-class" data-class="bg-midnight-bloom sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-night-sky switch-sidebar-cs-class" data-class="bg-night-sky sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class" data-class="bg-slick-carbon sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-asteroid switch-sidebar-cs-class" data-class="bg-asteroid sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-royal switch-sidebar-cs-class" data-class="bg-royal sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-warm-flame switch-sidebar-cs-class" data-class="bg-warm-flame sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-night-fade switch-sidebar-cs-class" data-class="bg-night-fade sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-sunny-morning switch-sidebar-cs-class" data-class="bg-sunny-morning sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-tempting-azure switch-sidebar-cs-class" data-class="bg-tempting-azure sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-amy-crisp switch-sidebar-cs-class" data-class="bg-amy-crisp sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-heavy-rain switch-sidebar-cs-class" data-class="bg-heavy-rain sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-mean-fruit switch-sidebar-cs-class" data-class="bg-mean-fruit sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class" data-class="bg-malibu-beach sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-deep-blue switch-sidebar-cs-class" data-class="bg-deep-blue sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-ripe-malin switch-sidebar-cs-class" data-class="bg-ripe-malin sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-arielle-smile switch-sidebar-cs-class" data-class="bg-arielle-smile sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-plum-plate switch-sidebar-cs-class" data-class="bg-plum-plate sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-happy-fisher switch-sidebar-cs-class" data-class="bg-happy-fisher sidebar-text-dark">
+                                                                </div>
+                                                                <div class="swatch-holder bg-happy-itmeo switch-sidebar-cs-class" data-class="bg-happy-itmeo sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-mixed-hopes switch-sidebar-cs-class" data-class="bg-mixed-hopes sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-strong-bliss switch-sidebar-cs-class" data-class="bg-strong-bliss sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-grow-early switch-sidebar-cs-class" data-class="bg-grow-early sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-love-kiss switch-sidebar-cs-class" data-class="bg-love-kiss sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-premium-dark switch-sidebar-cs-class" data-class="bg-premium-dark sidebar-text-light">
+                                                                </div>
+                                                                <div class="swatch-holder bg-happy-green switch-sidebar-cs-class" data-class="bg-happy-green sidebar-text-light">
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6 text-center">
+                                                <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class" data-class="" onclick="headerDefault()">
+                                                    Restore Default
+                                                </button>
+                                            </div>
+                                            <div class="col-6 text-center">
+                                                <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class" data-class="" onclick="sidebarDefault()">
+                                                    Restore Default
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 text-center mt-4">
+                                                <button type="button" class="btn btn-success" onclick="changeTheCookies()" id="saveChangesButton">Save changes</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="tab-pane" id="tab-eg115-1" role="tabpanel">
+                                        <!--                                        Manage permissions-->
+
+                                        <div class="text-center mb-5 d-none" id="userNotAuthorisedToManagePermissionsInfo">
+                                            <div class="page-title-icon mt-5 mb-2">
+                                                <i class="pe-7s-close-circle icon-gradient bg-love-kiss" style="font-size: 90px"></i>
+                                            </div>
+                                            You are not authorised to manage permissions
+                                        </div>
+
+                                        <div class="table-responsive d-none" id="permissionManagementTable">
+                                            <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th class="text-center">Status</th>
+                                                    <th class="text-center">Actions</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="userListTableBody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-eg115-2" role="tabpanel">
+<!--                                        Manage notifications-->
+
+                                        <div class="row mt-4">
+                                            <div class="col-6 text-center mt-1">
+                                                Allow for desktop notifications
+                                            </div>
+                                            <div class="col-6 text-center">
+                                                <label class="switch" for="desktopNotifications">
+                                                    <input type="checkbox" id="desktopNotifications" disabled>
+                                                    <div class="slider round"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="divider"></div>
+
+                                        <div id="notificationChannelToggleContainer">
+                                            <div class="row">
+                                                <div class="col-12 text-center mt-5 mb-5">
+                                                    Loading...
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-5 mb-1">
+                                            <div class="col-12 text-center">
+                                                <button type="button" class="btn btn-success" onclick="saveNotificationChannelChanges()" id="notificationChannelChangesButton">Save Changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {{>footer}}
+
+        </div>
+    </div>
+</div>
+
+<!--Modals-->
+
+<div class="modal fade" id="managePermissionsModal" tabindex="-1" role="dialog" aria-labelledby="Full Info" aria-hidden="true" data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="usersPermissionsModalTitle">Loading...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="userPermissionsModalBody">
+                <div class="table-responsive">
+                    <table class="align-middle mb-0 table table-borderless">
+                        <tbody id="tableUserPermissionsModal">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="fullInfoModalCloseButton">Close</button>
+                <button type="button" class="btn btn-primary" id="fullInfoModalCheck" onclick="updatePermissions()" disabled>Update permissions</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Templates-->
+
+<script id="tableRow-userList-template" type="text/x-handlebars-template">
+    <tr>
+        <td>
+            <div class="widget-content p-0">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left mr-3">
+                        <div class="widget-content-left">
+                            <img width="40" height="40" class="rounded-circle" src="{{userPhotoLink}}" alt="Profile picture">
+                        </div>
+                    </div>
+                    <div class="widget-content-left flex2">
+                        <div class="widget-heading">{{userNameList}}</div>
+                        <div class="widget-subheading opacity-7">{{userEmailList}}</div>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td class="text-center">
+            <div class="badge badge-{{userCredsBadge}}">{{userCredsName}}</div>
+        </td>
+        <td class="text-center">
+            <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#managePermissionsModal" onclick="editPermissions({{userIndex}})" {{userManagePermissionsDisabled}}>Manage permissions</button>
+            <button style="display: {{userModeratorDisplay}}" class="btn btn-{{userModeratorButtonClass}} btn-sm" type="button" data-toggle="tooltip" data-placement="bottom" title="{{userModeratorTooltipTitle}}"><i class="fa fa-angle-double-{{userModeratorIconClassDirection}}" onclick="changeModeratorStatus({{userIndex}})"></i></button>
+        </td>
+    </tr>
+</script>
+
+<script id="tableRow-permissions-template" type="text/x-handlebars-template">
+    <tr>
+        <td class="text-center"><button type="button" class="btn btn-{{moduleStatusClass}} ml-1 mr-1" style="width: 100%;" onclick="changeSinglePermission('{{moduleName}}')">{{moduleName}}</button></td>
+    </tr>
+</script>
+
+<script id="notification-toggle-template" type="text/x-handlebars-template">
+    <div class="row mt-4">
+        <div class="col-6 text-center mt-1">
+            {{notificationChannelName}}
+        </div>
+        <div class="col-6 text-center">
+            <label class="switch" for="notificationChannelToggle{{notificationChannelIndex}}">
+                <input type="checkbox" id="notificationChannelToggle{{notificationChannelIndex}}">
+                <div class="slider round"></div>
+            </label>
+        </div>
+    </div>
+</script>
+
+<script>
+    let isOwner = {{isOwner}};
+    let isModerator = {{isModerator}};
+</script>
+
+<script data-pace-options='{ "restartOnRequestAfter": false }' src="./assets/scripts/dependencies/pace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<script src="./assets/scripts/search.js"></script>
+<script src="./assets/scripts/permissionsManagement.js"></script>
+<script src="./assets/scripts/themeSettings.js"></script>
+<script src="./assets/scripts/notificationsManagement.js"></script>
+</body>
+</html>

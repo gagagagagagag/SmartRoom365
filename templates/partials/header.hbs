@@ -1,0 +1,128 @@
+<div class="app-header header-shadow {{headerColorClass}}" id="headerContainer">
+    <div class="app-header__logo">
+        <div class="logo-container logo-src">
+            <img src="assets/images/develocraft-logo.svg" alt="Develocraft logo">
+        </div>
+        <div class="header__pane ml-auto">
+            <div>
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="app-header__mobile-menu">
+        <div>
+            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+            </button>
+        </div>
+    </div>
+    <div class="app-header__menu">
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+    </div>
+    <div class="app-header__content">
+    <div class="app-header-left">
+        <div class="search-wrapper">
+            <div class="input-holder">
+                <input type="text" class="search-input" placeholder="Type to search" id="searchBox">
+                <button class="search-icon" id="searchStart"><span></span></button>
+            </div>
+            <button class="close" id="searchClose"></button>
+            <div id="searchListWraper" style="display: none; z-index: 100">
+                <div class="list-group mt-3 search-dropdown" id="searchList" style="position: absolute;">
+                    <a href="#" class="list-group-item list-group-item-action">Loading...</a>
+                </div>
+            </div>
+        </div>
+
+        <ul class="header-menu nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="0, 20" onclick="updateNotificationTimes()">
+                    <i class="nav-link-icon fas fa-bell opacity-8" id="notificationBellIcon"></i>
+                    Notifications
+                    <span class="badge badge-pill badge-success" id="notificationCount" style="display: none">Loading...</span>
+                </a>
+                <div class="dropdown-menu notifications-dropdown" aria-labelledby="dropdownMenuLink" id="notificationContainer">
+
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="app-header-right">
+
+        <div class="header-btn-lg pr-0">
+            <div class="widget-content p-0">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="btn-group">
+                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                <img width="42" class="rounded-circle" src="{{userPicture}}" alt="Profile picture">
+                                <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                            </a>
+                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                <button type="button" tabindex="0" class="dropdown-item" onclick="openPage('/profile')"><i class="fas fa-user mr-2 opacity-8"></i>My profile</button>
+                                <button type="button" tabindex="0" class="dropdown-item" onclick="openPage('/settings')"><i class="fa fa-cogs mr-2 opacity-8"></i>Settings</button>
+                                <div tabindex="-1" class="dropdown-divider"></div>
+                                <button type="button" tabindex="0" class="dropdown-item" onclick="signOut()"><i class="fa fa-sign-out-alt mr-2 opacity-8"></i>Log out</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content-left  ml-3 header-user-info">
+                        <div class="widget-heading">
+                            {{userName}}
+                        </div>
+                        <div class="widget-subheading">
+                            {{userEmail}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--Templates-->
+<script id="notification-template" type="text/x-handlebars-template">
+    <div class="notification" id="notificationContainer{{notificationIndex}}">
+        <span class="dropdown-item-text">
+            <span class="notification-header">{{notificationHeader}}</span><div class="mb-2 mr-2 badge badge-pill badge-success animated zoomIn" style="display: {{notificationNewBadge}}"><small>New</small></div><br/>
+            {{notificationBody}}
+            <br/>
+            <span class="notification-timestamp">{{notificationTimeStamp}}</span>
+        </span>
+        <div class="btn-group">
+            <a class="dropdown-item ml-2" href="javascript:void(0)" onclick="openNotification('{{notificationIndex}}')" style="display: {{notificationViewButtonDisplay}}"><i class="fas fa-eye"></i></a>
+            <a class="dropdown-item text-danger ml-2" href="javascript:void(0)" onclick="notificationRemove({{notificationIndex}})"><i class="fas fa-trash"></i></a>
+        </div>
+        <div class="dropdown-divider"></div>
+    </div>
+</script>
+
+<script>
+    const signOut = () => {
+        document.cookie = "authToken=;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+
+        window.location = "/?signOut=true";
+    };
+
+    const openPage = page => {
+      window.location = page;
+    };
+</script>
+<script src="./assets/scripts/dependencies/jquery.min.js"></script>
+<script src="./assets/scripts/dependencies/moment.min.js"></script>
+<script src="./assets/scripts/dependencies/handlebars-v4.1.2.js"></script>
+<script src="./assets/scripts/notifications.js"></script>

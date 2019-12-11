@@ -1,0 +1,135 @@
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.logo-container {
+    line-height: 1;
+    background: url(assets/images/develocraft-logo.svg) !important;
+    height: auto !important;
+    cursor: default
+}
+
+.logo-text-big {
+    font-family: 'Baloo Paaji', cursive;
+    font-size: 25px
+}
+
+.logo-text-small {
+    color: gray;
+    font-size: 10px
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.search-dropdown {
+    max-height: 400px;
+}
+
+.notifications-dropdown {
+    max-height: 400px;
+    max-width: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.notification-header {
+    font-weight: bold;
+}
+
+.notification-timestamp {
+    font-size: 10px;
+    color: gray;
+}
+
+.notification-badge {
+    animation-delay: 1s;
+
+    animation-iteration-count: 3;
+}
+
+.switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.switch input {
+    display:none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.dropdown-angle-animation {
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    -o-transition-duration: 300ms;
+    transition-duration: 300ms;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+}
+
+.check-icon-big {
+    font-size: 30px;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+.icon-success {
+    color: #3ac47d;
+}
+
+.icon-danger {
+    color: #d92550
+}
+
+.icon-primary {
+    color: #3f6ad8
+}

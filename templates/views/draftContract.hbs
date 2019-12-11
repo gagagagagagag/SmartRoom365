@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Develocraft - Draft a Contract</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <link href="./main.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/pace.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+<div class="app-container app-theme-white body-tabs-shadow {{fixedHeader}} {{fixedSidebar}} {{fixedFooter}}" id="mainAppContainer">
+
+    {{>header}}
+
+    <div class="app-main">
+
+        {{>sidemenu}}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class="pe-7s-config icon-gradient bg-mean-fruit">
+                                </i>
+                            </div>
+                            <div>Draft a Contract
+                                <div class="page-title-subheading">Create a new Contract
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-2" id="stageOne">
+                            <div class="card-header">
+                                Select a contract template and naming scheme
+                            </div>
+                            <div class="card-body">
+                                <label for="selectContractTemplate" class="">Contract Template</label>
+                                <select type="select" id="selectContractTemplate" name="contractTemplate" class="custom-select mb-4">
+                                    <option value="">Unit Pricing Contract</option>
+                                    <option>Value 1</option>
+                                    <option>Value 2</option>
+                                    <option>Value 3</option>
+                                    <option>Value 4</option>
+                                    <option>Value 5</option>
+                                </select>
+                                <label for="selectContractNamingScheme" class="">Naming Scheme</label>
+                                <select type="select" id="selectContractNamingScheme" name="contractNamingScheme" class="custom-select mb-4">
+                                    <option value="">initials/year/month/contract_number</option>
+                                    <option>Value 1</option>
+                                    <option>Value 2</option>
+                                    <option>Value 3</option>
+                                    <option>Value 4</option>
+                                    <option>Value 5</option>
+                                </select>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="mt-2">
+                                    <button class="btn btn-success" onclick="nextStep()">Next <i class="fas fa-arrow-right ml-1"></i> </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-2 d-none" id="stageTwo">
+                            <div class="card-header">
+                                Fill out the data
+                            </div>
+                            <div class="card-body">
+                                <form class="" id="draftForm">
+                                    <div class="position-relative form-group"><label for="exampleSelect" class="">Select an employee</label>
+                                        <select name="select" id="workers" class="form-control" disabled>
+                                            <option value="-2">Loading...</option>
+                                            <option value="-1">Select an employee</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="divider"></div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group"><label for="name" class="">Name</label><input name="email" id="name" placeholder="John" type="text" class="form-control" required></div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="position-relative form-group"><label for="lastname" class="">Lastname</label><input name="password" id="lastname" placeholder="Doe" type="text"
+                                                                                                                                            class="form-control" required></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group"><label for="street" class="">Address</label><input name="street" id="street" placeholder="1234 Main St" type="text" class="form-control" required></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group"><label for="city" class="">City</label><input name="city" id="city" placeholder="Warsaw" type="text"
+                                                                                                                                    class="form-control" required></div>
+                                        </div>
+                                    </div>
+                                    <div class="position-relative form-group"><label for="idNumber" class="">ID Number</label><input name="ID Number" id="idNumber" placeholder="ATL 123456" type="text" class="form-control" required></div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group"><label for="startDate" class="">Contract start date</label><input name="Start Date" id="startDate" type="date" class="form-control" required></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group"><label for="endDate" class="">Contract end date</label><input name="End Date" id="endDate" type="date"
+                                                                                                                                                    class="form-control" required></div>
+                                        </div>
+                                    </div>
+                                    <div class="position-relative form-group"><label for="netCost" class="">Net salary</label><input name="Net salary" id="netCost" placeholder="999zł" type="text" class="form-control" required></div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success" onclick="nextStep()">Draft</button>
+                            </div>
+                        </div>
+                        <div class="card mb-2 d-none" id="stageComplete">
+                            <div class="card-header text-center">
+                                JP/19/8/1
+                            </div>
+                            <div class="card-body text-center mb-5">
+                                <div class="page-title-icon mt-5">
+                                    <i class="pe-7s-check icon-gradient bg-grow-early" style="font-size: 90px"></i>
+                                </div>
+                                Contract completed
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-info">View Contract</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress mt-2 ml-2 mr-2 mb-4" style="height: 20px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" id="stageProgressBar">Stage 1 of 3</div>
+                </div>
+
+            </div>
+
+            {{>footer}}
+
+        </div>
+    </div>
+</div>
+
+<script data-pace-options='{ "restartOnRequestAfter": false }' src="./assets/scripts/dependencies/pace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<script src="./assets/scripts/search.js"></script>
+<script src="./assets/scripts/draftContract.js"></script>
+</body>
+</html>

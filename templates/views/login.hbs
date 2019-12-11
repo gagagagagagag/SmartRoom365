@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Develocraft - Log in</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <link href="./main.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/pace.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji&display=swap" rel="stylesheet">
+<!--    Client ID-->
+    <meta name="google-signin-client_id" content="157976966379-n6efro2e09om2shreo3t45q9gi28nmt3.apps.googleusercontent.com">
+</head>
+<body>
+<div class="app-container app-theme-white body-tabs-shadow fixed-header">
+
+    <div class="app-header header-shadow">
+        <div class="app-header__logo">
+            <div class="logo-src logo-container">
+                <img src="assets/images/develocraft-logo.svg" alt="Develocraft logo">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="app-main">
+
+
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="row mt-5">
+                    <div class="col-md-2 col-centered text-center">
+                        <div id="my-signin2"></div>
+                    </div>
+                </div>
+            </div>
+
+            {{>footer}}
+
+        </div>
+    </div>
+</div>
+<script>
+    // Backend specified location where the user came from and where he shall be returned to
+    const userLocation = "{{userLocation}}";
+    // Check if the user has signed out
+    let signOutFlag = "{{userSignedOut}}";
+</script>
+
+<script type="text/javascript" src="./assets/scripts/login.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
+</body>
+</html>
