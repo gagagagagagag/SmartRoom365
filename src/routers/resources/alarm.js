@@ -6,7 +6,7 @@ const Alarm = require("../../models/alarm");
 const { auth } = require("../../middleware/auth");
 const { userLogIn, endpointPermissionCheck } = require("../../middleware/userManagement");
 
-const { getActiveAlarm, stopMusic } = require("../../utils/systemControlls");
+const { getActiveAlarm, stopTheAlarm, changeTheLightStatus, getTheLightStatus } = require("../../utils/systemControlls");
 
 const router = new express.Router();
 
@@ -62,11 +62,21 @@ router.get("/resources/get-ringing-alarm", auth, userLogIn, endpointPermissionCh
 });
 
 router.post("/resources/stop-ringing-alarm", auth, userLogIn, endpointPermissionCheck, (req, res) => {
-    if (stopMusic() === -1) {
+    if (stopTheAlarm() === -1) {
         res.send(false);
     } else {
         res.send(true);
     }
+});
+
+router.post("/resources/change-the-light-status", auth, userLogIn, endpointPermissionCheck, (req, res) => {
+    changeTheLightStatus(req.body.newStatus);
+
+    res.send();
+});
+
+router.post("/resources/get-the-light-status", auth, userLogIn, endpointPermissionCheck, (req, res) => {
+    res.send(getTheLightStatus());
 });
 
 module.exports = router;

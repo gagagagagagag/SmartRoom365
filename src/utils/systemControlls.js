@@ -2,11 +2,49 @@ const { audio } = require("system-control");
 const path = require("path");
 const player = require('play-sound')(opts = {});
 const Alarm = require("../models/alarm");
+const Gpio = require("onoff").Gpio;
+
+let light;
 
 let activeAlarm;
 let audioPlaying = false;
 let audioProcess;
 
+const setupThePin = () => {
+    try {
+        if (!light) {
+            light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
+        }
+
+        light.setActiveLow(true);
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+const changeTheLightStatus = on => {
+    try {
+        if (!light) {
+            light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
+        }
+
+        light.writeSync(on);
+    } catch(e) {
+        console.log(e);
+    }
+};
+
+const getTheLightStatus = () => {
+    try {
+        if (!light) {
+            light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
+        }
+
+        return !light.readSync();
+    } catch (e) {
+        console.log(e);
+    }
+};
 
 const ringTheAlarm = async alarm => {
     try {
@@ -22,6 +60,18 @@ const ringTheAlarm = async alarm => {
     } catch (e) {
         console.log(e);
     }
+};
+
+const stopTheAlarm = () => {
+
+    const musicResponse = stopMusic();
+
+    changeTheLightStatus(true);
+
+    activeAlarm = undefined;
+
+    return musicResponse;
+
 };
 
 const turnVolumeUp = async volumeLevel => {
@@ -58,9 +108,6 @@ const stopMusic = () => {
 
     audioProcess.kill();
     audioPlaying = false;
-
-
-    activeAlarm = undefined;
 
     return 0;
 };
@@ -102,11 +149,15 @@ let setCheckingAlarmsAtFullMinutes = setInterval(() => {
 }, 500);
 
 checkIfAnyAlarmsTriggered();
+setupThePin();
 
 module.exports = {
     turnVolumeUp,
     playMusic,
     stopMusic,
     isMusicPlaying,
-    getActiveAlarm
+    getActiveAlarm,
+    stopTheAlarm,
+    getTheLightStatus,
+    changeTheLightStatus
 };

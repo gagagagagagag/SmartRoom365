@@ -21,6 +21,7 @@
     "loudness": "^0.3.0",
     "mongoose": "^5.7.14",
     "morgan": "~1.9.1",
+    "onoff": "^5.0.0",
     "play-sound": "^1.1.3",
     "system-control": "^0.1.1"
   },

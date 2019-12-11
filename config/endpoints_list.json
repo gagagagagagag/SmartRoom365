@@ -21,5 +21,7 @@
   "/resources/get-all-alarms": ["Alarm"],
   "/resources/change-alarm-active-status": ["Alarm"],
   "/resources/get-ringing-alarm": ["Alarm"],
-  "/resources/stop-ringing-alarm": ["Alarm"]
+  "/resources/stop-ringing-alarm": ["Alarm"],
+  "/resources/get-the-light-status": [],
+  "/resources/change-the-light-status": []
 }
