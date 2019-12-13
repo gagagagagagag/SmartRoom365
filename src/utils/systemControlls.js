@@ -3,6 +3,7 @@ const path = require("path");
 const player = require('play-sound')(opts = {});
 const Alarm = require("../models/alarm");
 const Gpio = require("onoff").Gpio;
+const { exec } = require('child_process');
 
 let light;
 
@@ -16,7 +17,7 @@ const setupThePin = () => {
             light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
         }
 
-        light.setActiveLow(true);
+        light.writeSync(0);
     } catch (e) {
         console.log(e);
     }
@@ -28,7 +29,7 @@ const changeTheLightStatus = on => {
             light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
         }
 
-        light.writeSync(on);
+        light.writeSync(on ? 1 : 0);
     } catch(e) {
         console.log(e);
     }
@@ -40,7 +41,9 @@ const getTheLightStatus = () => {
             light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
         }
 
-        return !light.readSync();
+		console.log(light.readSync());
+
+        return light.readSync() === 1;
     } catch (e) {
         console.log(e);
     }
@@ -55,6 +58,8 @@ const ringTheAlarm = async alarm => {
             console.log("Music already playing.");
         }
 
+		changeTheLightStatus(true);
+
         // Send info through sockets that an alarm is playing.
 
     } catch (e) {
@@ -66,7 +71,7 @@ const stopTheAlarm = () => {
 
     const musicResponse = stopMusic();
 
-    changeTheLightStatus(true);
+    changeTheLightStatus(false);
 
     activeAlarm = undefined;
 
@@ -93,7 +98,7 @@ const playMusic = () => {
     audioProcess = player.play(path.join(__dirname, "RammsteinDuhast.mp3"), {}, err => {
         if (err) {
             console.log(err);
-            throw err
+            //throw err
         }
         audioPlaying = false;
     });
@@ -103,10 +108,12 @@ const playMusic = () => {
 
 const stopMusic = () => {
     if (!audioPlaying) {
+		console.log("Audio not playing.");
         return -1;
     }
 
-    audioProcess.kill();
+	exec(`killall omxplayer.bin`);
+    //audioProcess.kill("SIGINT");
     audioPlaying = false;
 
     return 0;

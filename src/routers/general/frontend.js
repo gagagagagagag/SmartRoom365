@@ -7,6 +7,7 @@ const userCostumizedTheme = require("../../middleware/themeCostumization");
 const router = new express.Router();
 
 router.get("/", (req, res) => {
+	return res.redirect("/home");
     res.render("login", {
         userLocation: req.query.loc,
         userSignedOut: req.query.signOut ? "userSignedOut" : ""

@@ -7,12 +7,17 @@ const auth = async (req, res, next) => {
     try {
         let token = req.cookies.authToken;
 
-        const ticket = await client.verifyIdToken({
-           idToken: token,
-           audience: process.env.CLIENTID_GOOGLE_AUTH
-        });
+        //const ticket = await client.verifyIdToken({
+        //   idToken: token,
+        //   audience: process.env.CLIENTID_GOOGLE_AUTH
+        //});
 
-        req.authUserData = ticket.getPayload();
+        //req.authUserData = ticket.getPayload();
+		req.authUserData = {
+				email: "jakubprzywara48@gmail.com",
+				picture: "https://lh6.googleusercontent.com/-qhlmqpJjh9g/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfCC2xQiwRfrwfJ3mWrHx-zQt54cg/s96-c/photo.jpg",
+				name: "Kuba Przywara"
+		};
 
         next();
     } catch (e) {

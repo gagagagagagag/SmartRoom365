@@ -75,7 +75,7 @@ router.post("/resources/change-the-light-status", auth, userLogIn, endpointPermi
     res.send();
 });
 
-router.post("/resources/get-the-light-status", auth, userLogIn, endpointPermissionCheck, (req, res) => {
+router.get("/resources/get-the-light-status", auth, userLogIn, endpointPermissionCheck, (req, res) => {
     res.send(getTheLightStatus());
 });
 

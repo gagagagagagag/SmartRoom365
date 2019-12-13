@@ -1,3 +1,4 @@
+const http = require("http");
 const express = require("express");
 const chalk = require("chalk");
 const path = require("path");
@@ -22,6 +23,7 @@ const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
 
 const app = express();
+const server = http.createServer(app);
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -49,7 +51,7 @@ app.get("/*", userCostumizedTheme, (req, res) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, "192.168.8.2", () => {
     console.log();
     console.log(chalk.green("The server is listening on port: " + process.env.PORT));
     console.log();
