@@ -249,6 +249,7 @@ const removeAllNotifications = async () => {
 setInterval(updateNotificationTimes, 1000 * 60);
 
 // Check for new notifications every 10s
-setInterval(notificationUpdateQuickCheck, 1000 * 10);
+// TODO Sockets for updating notification info
+// setInterval(notificationUpdateQuickCheck, 1000 * 10);
 
 getNotificationList();

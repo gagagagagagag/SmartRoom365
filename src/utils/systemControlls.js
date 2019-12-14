@@ -23,13 +23,13 @@ const setupThePin = () => {
     }
 };
 
-const changeTheLightStatus = on => {
+const changeTheLightStatus = () => {
     try {
         if (!light) {
             light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
         }
 
-        light.writeSync(on ? 1 : 0);
+        light.writeSync(getTheLightStatus() ? 0 : 1);
     } catch(e) {
         console.log(e);
     }

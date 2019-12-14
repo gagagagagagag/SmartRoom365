@@ -43,11 +43,11 @@
                     <div class="page-title-wrapper">
                         <div class="page-title-heading">
                             <div class="page-title-icon">
-                                <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                                <i class="pe-7s-diamond icon-gradient bg-mean-fruit">
                                 </i>
                             </div>
-                            <div>Analytics Dashboard
-                                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                            <div>365
+                                <div class="page-title-subheading">Best room in Alkatraz
                                 </div>
                             </div>
                         </div>
@@ -55,16 +55,114 @@
                 </div>
 
 <!--                Content-->
-
                 <div class="row">
-                    <div class="col-6 text-center">
-                        <button class="btn btn-primary" onclick="changeTheLightStatus(true)">Turn the light on</button>
+                    <div class="col-12">
+                        <div class="card mb-3 widget-content bg-arielle-smile">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Temperature</div>
+                                    <div class="widget-subheading">The outside temperature in Warsaw</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <div class="widget-numbers text-white"><span id="weatherWidgetTemperature" class="d-none"></span></div>
+                                    <div class="spinner-grow" role="status" id="weatherWidgetTemperatureSpinner">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 text-center">
-                        <button class="btn btn-primary" onclick="changeTheLightStatus(false)">Turn the light off</button>
+                    <div class="w-100"></div>
+                    <div class="col-12">
+                        <div class="card mb-3 widget-content bg-midnight-bloom">
+                            <div class="widget-content-wrapper text-white">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Weather conditions</div>
+                                    <div class="widget-subheading d-none d-sm-block">The weather conditions for Warsaw</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather img" height="40px" id="weatherWidgetImage" class="d-none">
+                                    <div class="spinner-grow text-black-50" role="status" id="weatherWidgetImageSpinner">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <div class="divider"></div>
+                <h5>Light control</h5>
+
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="card mb-3 widget-content bg-amy-crisp">
+                            <div class="widget-content-wrapper text-white">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Top Light 1</div>
+                                    <div class="widget-subheading d-none d-sm-block">Turn on and off the top light</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <div class="spinner-grow text-black-50 light-status-spinners" role="status" id="lightControll0Spinner">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <i class="fas fa-lightbulb d-none" style="font-size: 50px; cursor:pointer;" id="lightControll0" onclick="changeTheLightStatus(0)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-12">
+                        <div class="card mb-3 widget-content bg-amy-crisp">
+                            <div class="widget-content-wrapper text-white">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Top Light 2</div>
+                                    <div class="widget-subheading d-none d-sm-block">Turn on and off the top light</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <div class="spinner-grow text-black-50 light-status-spinners" role="status" id="lightControll1Spinner">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <i class="fas fa-lightbulb d-none" style="font-size: 50px; cursor:pointer;" id="lightControll1" onclick="changeTheLightStatus(1)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-12">
+                        <div class="card mb-3 widget-content bg-amy-crisp">
+                            <div class="widget-content-wrapper text-white">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Kitchen Light</div>
+                                    <div class="widget-subheading d-none d-sm-block">Turn on and off the kitchen light</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <div class="spinner-grow text-black-50 light-status-spinners" role="status" id="lightControll2Spinner">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <i class="fas fa-lightbulb d-none" style="font-size: 50px; cursor:pointer;" id="lightControll2" onclick="changeTheLightStatus(2)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-12">
+                        <div class="card mb-3 widget-content bg-amy-crisp">
+                            <div class="widget-content-wrapper text-white">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Bed Light</div>
+                                    <div class="widget-subheading d-none d-sm-block">Turn on and off the bed light</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <div class="spinner-grow text-black-50 light-status-spinners" role="status" id="lightControll3Spinner">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <i class="fas fa-lightbulb d-none" style="font-size: 50px; cursor:pointer;" id="lightControll3" onclick="changeTheLightStatus(3)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {{>footer}}

@@ -15,6 +15,7 @@ const notificationRouter = require("./routers/resources/notifications");
 const configDataRouter = require("./routers/resources/config-data");
 const usersRouter = require("./routers/resources/users");
 const alarmRouter = require("./routers/resources/alarm");
+const lightsRouter = require("./routers/resources/lights");
 
 require("./db/mongoose");
 
@@ -43,6 +44,7 @@ app.use(notificationRouter);
 app.use(configDataRouter);
 app.use(usersRouter);
 app.use(alarmRouter);
+app.use(lightsRouter);
 
 app.get("/*", userCostumizedTheme, (req, res) => {
     res.render("404", {
@@ -51,7 +53,7 @@ app.get("/*", userCostumizedTheme, (req, res) => {
     });
 });
 
-server.listen(process.env.PORT, "192.168.8.2", () => {
+server.listen(process.env.PORT, process.env.SERVER_IP, () => {
     console.log();
     console.log(chalk.green("The server is listening on port: " + process.env.PORT));
     console.log();
