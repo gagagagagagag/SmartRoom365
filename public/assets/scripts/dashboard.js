@@ -29,7 +29,7 @@ const getWeatherInfo = async () => {
     try {
         const response = await $.ajax({
             type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/weather?id=756135&appid=5d7aec671e6cbcb8a2c9182058075e47"
+            url: "https://api.openweathermap.org/data/2.5/weather?id=756135&appid=5d7aec671e6cbcb8a2c9182058075e47"
         });
 
         console.log(response);
@@ -40,7 +40,7 @@ const getWeatherInfo = async () => {
 };
 
 const displayWeatherInfo = weatherInfo => {
-    $("#weatherWidgetImage").attr("src", `http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png`);
+    $("#weatherWidgetImage").attr("src", `https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png`);
     $("#weatherWidgetImageSpinner").remove();
     $("#weatherWidgetImage").removeClass("d-none");
 
@@ -63,7 +63,7 @@ const getLightInfo = async () => {
 };
 
 const showLightInfo = lightInfo => {
-    console.log("Update light info");
+    // console.log(lightInfo);
 
     for (let i = 0; i < lightInfo.length; i++) {
         if (lightInfo[i] === "1") {
@@ -84,5 +84,32 @@ const showLightInfo = lightInfo => {
     }
 };
 
-getLightInfo();
-getWeatherInfo();
+const registerSW = async () => {
+	if ("serviceWorker" in navigator) {
+		try {
+			await navigator.serviceWorker.register("./sw.js");
+		} catch (e) {
+			console.log("SW registration failed.");
+		}
+	}
+};
+
+socketInfo.on("lights", () => {
+	getTheLightInfo();
+});
+
+const setUpTheSocket = () => {
+	if (!socketInfo) {
+		socketInfo = io();
+	}
+
+	socketInfo.on("lights", () => {                                                                                                                                                                                          getTheLightInfo();                                                                                                                                                                                                 
+	});  
+}
+
+window.addEventListener("load", () => {
+	getLightInfo();
+	getWeatherInfo();
+	registerSW();
+	setUpTheSocket();
+});

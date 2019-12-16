@@ -18,6 +18,8 @@ router.post("/resources/create-a-notification", auth, userLogIn, endpointPermiss
 
         await notification.save();
 
+		req.io.sockets.emit("notification");
+
         res.send("Success!");
     } catch (e) {
         console.log(e);

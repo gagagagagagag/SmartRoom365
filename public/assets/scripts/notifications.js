@@ -1,3 +1,5 @@
+const socketInfo = io();
+
 // Templates
 const notificationTemplateHTML = $("#notification-template").html();
 const notificationTemplate = Handlebars.compile(notificationTemplateHTML);
@@ -251,5 +253,9 @@ setInterval(updateNotificationTimes, 1000 * 60);
 // Check for new notifications every 10s
 // TODO Sockets for updating notification info
 // setInterval(notificationUpdateQuickCheck, 1000 * 10);
+
+socketInfo.on("notification", () => {
+	notificationUpdateQuickCheck();
+});
 
 getNotificationList();

@@ -41,8 +41,6 @@ const getTheLightStatus = () => {
             light = new Gpio(process.env.GPIO_LIGHT_PIN, "out");
         }
 
-		console.log(light.readSync());
-
         return light.readSync() === 1;
     } catch (e) {
         console.log(e);

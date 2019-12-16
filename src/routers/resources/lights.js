@@ -16,19 +16,22 @@ router.post("/resources/change-the-light-status", auth, userLogIn, endpointPermi
             resp.on("data", chunk => {
                 if (firstPacket) {
                     firstPacket = false;
+					
+					req.io.sockets.emit("lights");
+
                     return res.send();
                 }
             });
         });
-    } else if (req.body.lightID === "3") {
+    } else if (req.body.lightID === 3) {
         changeTheLightStatus();
+
+		req.io.sockets.emit("lights");
 
         return res.send();
     } else {
         return res.status(400).send();
     }
-
-
 });
 
 router.get("/resources/get-the-light-status", auth, userLogIn, endpointPermissionCheck, async (req, res) => {
@@ -43,7 +46,7 @@ router.get("/resources/get-the-light-status", auth, userLogIn, endpointPermissio
                 }
                 if (secondResp) {
                     secondResp = false;
-                    return res.send(`${chunk.toString()}${getTheLightStatus() ? "1" : "0"}`);
+                    return res.send(`${chunk.toString().slice(0, 3)}${getTheLightStatus() ? "1" : "0"}`);
                 }
             });
         }).on("error", err => {
