@@ -55,6 +55,29 @@ alarmSchema.methods.checkIfTriggered = function() {
     return false;
 };
 
+alarmSchema.methods.changeActiveStatus = async function() {
+	const alarm = this;
+	
+	const timeNow = new Date();
+	const alarmTime = new Date(alarm.date);
+	
+	if (alarmTime.getHours() < dateNow.getHours()) {
+		timeNow.setDate(timeNow.getDate() + 1);
+    } else {
+        if (alarmTime.getMinutes() <= dateNow.getMinutes()) {
+            timeNow.setDate(timeNow.getDate() + 1);
+        }
+    }
+
+	alarmTime.setYear(timeNow.getYear());
+	alarmTime.setMonth(timeNow.getYear());
+	alarmTime.setDate(timeNow.getDate());
+
+	alarm.date = alarmTime;
+	
+	await alarm.save();
+}
+
 const Alarm = mongoose.model("Alarm", alarmSchema);
 
 module.exports = Alarm;

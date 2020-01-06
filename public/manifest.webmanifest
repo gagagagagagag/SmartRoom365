@@ -6,7 +6,13 @@
   "background_color": "#fff",
   "description": "An app controlling smart room features.",
   "icons": [{
-    "src": "assets/images/ios-icon2.png",
+    "src": "assets/images/avocado128.png",
+	"sizes": "128x128"
+  }, {
+  	"src": "assets/images/avocado256.png",
+	"sizes": "256x256"
+  }, {
+  	"src": "assets/images/avocado180.png",
 	"sizes": "180x180"
   }]
 }

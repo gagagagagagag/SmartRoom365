@@ -204,5 +204,9 @@ const hideAlarmModal = async () => {
     $("#alarmModalButtonDismiss").click();
 };
 
+socketInfo.on("alarm", () => {
+	getRingingAlarm();
+});
+
 getAlarmList();
 getRingingAlarm();

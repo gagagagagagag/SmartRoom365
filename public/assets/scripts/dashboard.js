@@ -1,5 +1,32 @@
 const disabledLightSwitches = [false, false, false, false];
 
+const changeTheLightStatusOfAllLights = async status => {
+	for (let status of disabledLightSwitches) {
+		if (status) return;
+	}
+
+	let i = 0;
+	for (let status of disabledLightSwitches) {
+		status = true;
+		$(`#lightControll${i}Spinner`).removeClass("d-none");
+	}
+	
+	try {
+		await $.ajax({
+			type: "POST",
+			url: "/resources/change-the-light-status-all",
+			contentType: "application/json",
+			data: JSON.stringify({
+				status
+			})
+		});
+
+		getLightInfo();
+	} catch (e) {
+		console.log(e);
+	}
+}
+
 const changeTheLightStatus = async lightID => {
 
     if (disabledLightSwitches[lightID]) {
@@ -64,23 +91,29 @@ const getLightInfo = async () => {
 
 const showLightInfo = lightInfo => {
     // console.log(lightInfo);
+		//
+	for (let i = 0; i < disabledLightSwitches.length; i++) { 
+		disabledLightSwitches[i] = false;
+	}
 
     for (let i = 0; i < lightInfo.length; i++) {
         if (lightInfo[i] === "1") {
             $(`#lightControll${i}`).addClass("icon-success");
-        } else {
+			$(`#lightControll${i}`).removeClass("icon-danger");
+        } else if (lightInfo[i] === "0") {
             $(`#lightControll${i}`).removeClass("icon-success");
-        }
+			$(`#lightControll${i}`).removeClass("icon-danger");
+        } else if (lightInfo[i] === "-") {
+			$(`#lightControll${i}`).addClass("icon-danger");
+			$(`#lightControll${i}`).removeClass("icon-success");
+			disabledLightSwitches[i] = true;
+		}
     }
 
     $(".light-status-spinners").addClass("d-none");
 
     for (let i = 0; i < lightInfo.length; i++) {
         $(`#lightControll${i}`).removeClass("d-none");
-    }
-
-    for (let i = 0; i < disabledLightSwitches.length; i++) {
-        disabledLightSwitches[i] = false;
     }
 };
 
@@ -95,21 +128,11 @@ const registerSW = async () => {
 };
 
 socketInfo.on("lights", () => {
-	getTheLightInfo();
+	getLightInfo();
 });
-
-const setUpTheSocket = () => {
-	if (!socketInfo) {
-		socketInfo = io();
-	}
-
-	socketInfo.on("lights", () => {                                                                                                                                                                                          getTheLightInfo();                                                                                                                                                                                                 
-	});  
-}
 
 window.addEventListener("load", () => {
 	getLightInfo();
 	getWeatherInfo();
 	registerSW();
-	setUpTheSocket();
 });

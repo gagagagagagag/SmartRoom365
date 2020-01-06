@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SmartRoom365 - Dashboard</title>
+    <title>SmartRoom - Dashboard</title>
 	<link rel="manifest" href="./manifest.webmanifest">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/ios-icon2.png">
-	<link rel="icon" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/avocado180.png">
+	<link rel="icon" href="/assets/images/avocado.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="The dashboard for BrainCode">
     <meta name="msapplication-tap-highlight" content="no">
@@ -23,6 +23,7 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
+	<script src="/socket.io/socket.io.js"></script>
     <link href="./main.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
@@ -96,8 +97,25 @@
                 <div class="divider"></div>
                 <h5>Light control</h5>
 
-                <div class="row">
+				<div class="row">
                     <div class="col-12 mt-3">
+                        <div class="card mb-3 widget-content bg-arielle-smile">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">Turn all of the lights on/off</div>
+                                    <div class="widget-subheading">Day (sun) all off, night (moon) all on</div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <button class="btn btn-primary mr-2" onclick="changeTheLightStatusOfAllLights(false)"><i class="fas fa-sun"></i></button>
+									<button class="btn btn-primary" onclick="changeTheLightStatusOfAllLights(true)"><i class="fas fa-moon"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
                         <div class="card mb-3 widget-content bg-amy-crisp">
                             <div class="widget-content-wrapper text-white">
                                 <div class="widget-content-left">
@@ -176,11 +194,10 @@
 <!--        src="https://code.jquery.com/jquery-3.4.1.min.js"-->
 <!--        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="-->
 <!--        crossorigin="anonymous"></script>-->
-<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-<script src="/socket.io/socket.io.js"></script>
+<!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script> -->
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
 </body>
-<script src="./assets/scripts/notifications.js"></script>
+<!-- <script src="./assets/scripts/notifications.js"></script> -->
 <script src="./assets/scripts/search.js"></script>
 <script src="./assets/scripts/dashboard.js"></script>
 </html>

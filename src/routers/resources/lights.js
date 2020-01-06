@@ -50,13 +50,42 @@ router.get("/resources/get-the-light-status", auth, userLogIn, endpointPermissio
                 }
             });
         }).on("error", err => {
-            return res.status(500).send();
+			console.log("The Arduino seems to be down.");
+            return res.send(`---${getTheLightStatus() ? "1" : "0"}`);
         });
 
     } catch (e) {
         console.log(e);
         res.status(500).send();
     }
+});
+
+router.post("/resources/change-the-light-status-all", auth, userLogIn, endpointPermissionCheck, async (req, res) => {
+	try {
+		let firstRequest = true;
+		http.get(`http://192.168.8.3?lights=${req.body.status ? "o" : "x"}`, resp => {
+			resp.on("data", chunk => {
+				if (firstRequest) {
+
+					if (!getTheLightStatus() && req.body.status) {
+						changeTheLightStatus();
+					} else if (getTheLightStatus() && req.body.status === false) {
+						changeTheLightStatus();
+					}
+					req.io.sockets.emit("lights");
+					res.send();
+					firstRequest = false;
+				}
+				return;
+			})
+		}).on("error", err => {
+			console.log("Arduino seems to be down or inaccesable.");
+			res.status(500).send();
+		});
+	} catch (e) {
+		console.log(e);
+		res.status(500).send();
+	}
 });
 
 module.exports = router;

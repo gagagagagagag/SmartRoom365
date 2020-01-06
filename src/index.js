@@ -84,3 +84,5 @@ httpsServer.listen(process.env.PORT, process.env.SERVER_IP, () => {
     console.log(chalk.green("The server is listening on port: " + process.env.PORT));
     console.log();
 });
+
+module.exports = { io };

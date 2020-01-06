@@ -1,8 +1,10 @@
 const { audio } = require("system-control");
+//const { io } = require("system-control");
 const path = require("path");
 const player = require('play-sound')(opts = {});
 const Alarm = require("../models/alarm");
-const Gpio = require("onoff").Gpio;
+const Gpio = require("onoff").Gpio; 
+//const controllSockets = require("../index");
 const { exec } = require('child_process');
 
 let light;
@@ -10,6 +12,7 @@ let light;
 let activeAlarm;
 let audioPlaying = false;
 let audioProcess;
+let keepIO;
 
 const setupThePin = () => {
     try {
@@ -59,7 +62,7 @@ const ringTheAlarm = async alarm => {
 		changeTheLightStatus(true);
 
         // Send info through sockets that an alarm is playing.
-
+		// controllSockets.io.sockets.emit("alarm");
     } catch (e) {
         console.log(e);
     }

@@ -43,6 +43,10 @@ router.post("/resources/change-alarm-active-status", auth, userLogIn, endpointPe
 
         alarm.active = !alarm.active;
 
+		if (alarm.active) {
+			await alarm.changeActiveStatus();
+		}
+
         await alarm.save();
 
         res.send(201);
